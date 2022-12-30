@@ -27,12 +27,12 @@
 
 //     }
 //  }
-stage("stop applications")
-{
-       steps{  
-        bat 'docker-compose -f nginx-nodejs-redis/compose.yaml down'  
-     }
-   } 
+// stage("stop applications")
+// {
+//        steps{  
+//         bat 'docker-compose -f nginx-nodejs-redis/compose.yaml down'  
+//      }
+//    } 
    stage("Upload image"){
     steps{
 script{

@@ -16,9 +16,9 @@ services:
     # build: ./nginx
     image: prince2489/nginximage
     ports:
-    - '999:80'
+      - '999:80'
     depends_on:
-    - web1
-    # - web2
+      - web1
+      # - web2
 
 
