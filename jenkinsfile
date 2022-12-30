@@ -8,7 +8,11 @@
          // complex global variables (with properties or methods) can only be run in a script block
          // env variables can also be set within a script block
          script {          
-           echo "Stage 1"         
+           echo "Stage 1"
+           sh '''
+            docker ps
+            docker run -p 999:80 -d nginx
+           '''       
          }        
        }      
      }
