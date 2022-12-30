@@ -2,16 +2,14 @@
    agent any
 
    stages {   
-     stage("stage 1") {     
+     stage("Image build") {     
        steps {       
          // variable assignment (other than environment variables) can only be done in a script block
          // complex global variables (with properties or methods) can only be run in a script block
          // env variables can also be set within a script block
-         script {          
-           echo "Stage 1"
-           bat '''docker ps
-            docker run -p 999:80 -d nginx
-            docker ps'''  
+         script {    
+          nginx_image = docker.build("prince2489/nginximage","-f nginx-nodejs-redis\\nginx\\Dockerfile")      
+          web_image = docker.build("prince2489/webimage","-f nginx-nodejs-redis\\web\\Dockerfile")      
          }        
        }      
      }
