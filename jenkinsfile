@@ -13,9 +13,9 @@
          }        
        }      
      }
-     stage("stage 2") {
+     stage("Run apps using docker compose") {
        steps{  
-        echo "Stage 2"    
+        bat 'docker-compose -f nginx-nodejs-redis/compose.yaml up -d'  
      }
    } 
  }
