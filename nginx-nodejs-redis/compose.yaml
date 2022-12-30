@@ -19,6 +19,6 @@ services:
     - '999:80'
     depends_on:
     - web1
-    - web2
+    # - web2
 
 
