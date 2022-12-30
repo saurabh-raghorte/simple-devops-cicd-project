@@ -13,11 +13,11 @@
          }        
        }      
      }
-  //    stage("Run apps using docker compose") {
-  //      steps{  
-  //       bat 'docker-compose -f nginx-nodejs-redis/compose.yaml up -d'  
-  //    }
-  //  } 
+     stage("Run apps using docker compose") {
+       steps{  
+        bat 'docker-compose -f nginx-nodejs-redis/compose.yaml up -d'  
+     }
+   } 
 //    stage("Application check")
 //    steps{
 //     script{
@@ -45,14 +45,14 @@ script{
   }
    }
    }
-stage('K8s stage'){
-  steps{
-    script{
-      kubeconfig(credentialsId: '763ea751-5125-40b9-83d6-ffc9bb4506c8', serverUrl: '') {
-    bat '''
-    kubectl apply -f k8files/
-    '''
-}
+// stage('K8s stage'){
+//   steps{
+//     script{
+//       kubeconfig(credentialsId: '763ea751-5125-40b9-83d6-ffc9bb4506c8', serverUrl: '') {
+//     bat '''
+//     kubectl apply -f k8files/
+//     '''
+// }
     
     }
   }
