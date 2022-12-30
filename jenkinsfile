@@ -18,5 +18,28 @@
         bat 'docker-compose -f nginx-nodejs-redis/compose.yaml up -d'  
      }
    } 
+//    stage("Application check")
+//    steps{
+//     script{
+//       sleep(10000)
+//       final string web_url = "http://localhost:999/"
+//       final string response_code = bat(script: "curl -sLI -w "'${http_code}'" $web_url -o /dev/null", returnStdout: true).trim()
+
+//     }
+//  }
+stage("stop applications")
+{
+       steps{  
+        bat 'docker-compose -f nginx-nodejs-redis/compose.yaml down'  
+     }
+   } 
+   stage("Upload image"){
+script{
+  docker.withRegistry(){
+    nginx_image.push()
+    web_image.push()
+  }
+}
+   }
  }
  }
