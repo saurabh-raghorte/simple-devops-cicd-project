@@ -8,8 +8,8 @@
          // complex global variables (with properties or methods) can only be run in a script block
          // env variables can also be set within a script block
          script {    
-          nginx_image = docker.build("prince2489/nginximage","-f nginx-nodejs-redis\\nginx\\Dockerfile .")      
-          web_image = docker.build("prince2489/webimage","-f nginx-nodejs-redis\\web\\Dockerfile .")      
+          nginx_image = docker.build("prince2489/nginximage","-f nginx\\Dockerfile .")      
+          web_image = docker.build("prince2489/webimage","-f web\\Dockerfile .")      
          }        
        }      
      }
