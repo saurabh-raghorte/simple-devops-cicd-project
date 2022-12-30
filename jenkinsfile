@@ -48,9 +48,12 @@ script{
 stage('K8s stage'){
   steps{
     script{
+      kubeconfig(credentialsId: '763ea751-5125-40b9-83d6-ffc9bb4506c8', serverUrl: '') {
     bat '''
     kubectl apply -f k8files/
     '''
+}
+    
     }
   }
 }
