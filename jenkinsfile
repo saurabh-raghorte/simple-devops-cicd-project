@@ -34,10 +34,12 @@ stage("stop applications")
      }
    } 
    stage("Upload image"){
+    steps{
 script{
   docker.withRegistry(){
     nginx_image.push()
     web_image.push()
+    }
   }
 }
    }
