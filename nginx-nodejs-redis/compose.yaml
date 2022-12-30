@@ -9,8 +9,8 @@ services:
     # build: ./web
     image: prince2489/webimage
     hostname: web1
-    # ports:
-    #   - '81:5000'
+    ports:
+      - '81:5000'
 
   nginx:
     # build: ./nginx
