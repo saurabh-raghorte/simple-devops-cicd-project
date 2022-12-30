@@ -1,0 +1,24 @@
+version: '2.13'
+services:
+  redis:
+    image: 'redislabs/redismod'
+    ports:
+      - '6379:6379'
+  web1:
+    restart: on-failure
+    # build: ./web
+    image: prince2489/webimage:compose
+    hostname: web1
+    ports:
+      - '81:5000'
+
+  nginx:
+    # build: ./nginx
+    image: prince2489/nginximage:compose
+    ports:
+      - '999:80'
+    depends_on:
+      - web1
+      # - web2
+
+

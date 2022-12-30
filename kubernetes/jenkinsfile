@@ -1,0 +1,61 @@
+ pipeline {  
+   agent any
+
+   stages {   
+     stage("Image build") {     
+       steps {       
+         // variable assignment (other than environment variables) can only be done in a script block
+         // complex global variables (with properties or methods) can only be run in a script block
+         // env variables can also be set within a script block
+         script {    
+          nginx_image = docker.build("prince2489/nginximage:compose","-f docker-compose\\nginx-nodejs-redis\\nginx\\Dockerfile .")      
+          web_image = docker.build("prince2489/webimage:compose","-f docker-compose\\nginx-nodejs-redis\\web\\Dockerfile .")      
+         }        
+       }      
+     }
+     stage("Run apps using docker compose") {
+       steps{  
+        bat 'docker-compose -f docker-compose/nginx-nodejs-redis/compose.yaml up -d'  
+     }
+   } 
+//    stage("Application check")
+//    steps{
+//     script{
+//       sleep(10000)
+//       final string web_url = "http://localhost:999/"
+//       final string response_code = bat(script: "curl -sLI -w "'${http_code}'" $web_url -o /dev/null", returnStdout: true).trim()
+
+//     }
+//  }
+// stage("stop applications")
+// {
+//        steps{  
+//         bat 'docker-compose -f nginx-nodejs-redis/compose.yaml down'  
+//      }
+//    } 
+   stage("Upload image"){
+    steps{
+    script{
+    
+    withDockerRegistry(credentialsId: '5f70e76c-0ba5-4ae2-b104-01e55ba3d96c') {
+    nginx_image.push()
+    web_image.push()
+    }
+
+  }
+   }
+   }
+// stage('K8s stage'){
+//   steps{
+//     script{
+//       kubeconfig(credentialsId: '763ea751-5125-40b9-83d6-ffc9bb4506c8', serverUrl: '') {
+//     bat '''
+//     kubectl apply -f k8files/
+//     '''
+// }
+    
+  //   }
+  // }
+// }
+ }
+ }
