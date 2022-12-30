@@ -36,10 +36,12 @@ stage("stop applications")
    stage("Upload image"){
     steps{
 script{
-  docker.withRegistry(){
+    
+    }
+    withDockerRegistry(credentialsId: '5f70e76c-0ba5-4ae2-b104-01e55ba3d96c') {
     nginx_image.push()
     web_image.push()
-    }
+
   }
 }
    }
