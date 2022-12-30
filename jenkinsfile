@@ -43,7 +43,7 @@ script{
     }
 
   }
-
+   }
    }
 stage('K8s stage'){
   steps{
@@ -54,4 +54,5 @@ stage('K8s stage'){
     }
   }
 }
+ }
  }
