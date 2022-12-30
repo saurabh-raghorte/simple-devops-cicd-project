@@ -1,0 +1,20 @@
+ pipeline {  
+   agent any
+
+   stages {   
+     stage("stage 1") {     
+       steps {       
+         // variable assignment (other than environment variables) can only be done in a script block
+         // complex global variables (with properties or methods) can only be run in a script block
+         // env variables can also be set within a script block
+         script {          
+           echo "Stage 1"         
+         }        
+       }      
+     }
+     stage("stage 2") {
+       steps{  
+        echo "Stage 2"    
+     }
+   } 
+ }
