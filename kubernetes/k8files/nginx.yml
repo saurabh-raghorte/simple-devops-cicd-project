@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: nginxcontainer
-        image: prince2489/nginximage:latest
+        image: prince2489/nginximage:kubernetes
         resources:
           limits:
             memory: "128Mi"

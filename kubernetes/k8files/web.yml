@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: webappcontainer
-        image: prince2489/webimage:latest
+        image: prince2489/webimage:kubernetes
         resources:
           limits:
             memory: "128Mi"
