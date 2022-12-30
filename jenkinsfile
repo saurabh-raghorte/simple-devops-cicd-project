@@ -47,9 +47,11 @@ script{
    }
 stage('K8s stage'){
   steps{
+    script{
     bat '''
     kubectl apply -f k8files/
     '''
+    }
   }
 }
  }
