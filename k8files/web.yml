@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  selector:
+    matchLabels:
+      app: webapp_prod
+  template:
+    metadata:
+      labels:
+        app: webapp_prod
+    spec:
+      containers:
+      - name: webappcontainer
+        image: prince2489/webimage:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
