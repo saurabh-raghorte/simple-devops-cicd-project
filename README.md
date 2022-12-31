@@ -2,9 +2,10 @@
 ## This DevOps project can be implemented on laptop **(no cloud account required)** consist of following technologies-
 - Source Code Management as **GitHub**
 - Containerization tool - **Docker** (Docker Desktop on Windows/ Mac / Linux)
+- **Kubernetes** using docker-dekstop
 - CICD tool - **Jenkins**
 - IDE - **VScode, Pycharm**, etc (Recommended but not mandatory)
-- **Kubernetes** using docker-dekstop
+
 
 ## Git installation
 Download and install Git on your local machine - https://git-scm.com/downloads.
@@ -31,8 +32,34 @@ Windows users might face issue while starting docker-desktop, see below steps-
 - Refer below links-
     - https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers
     - https://docs.docker.com/desktop/windows/wsl/
-image.pnghttps://github.com/devopswithprince/simple-devops-cicd-project/blob/main/_readme_images/docker-desktop1.png
-![alt text](https://github.com/devopswithprince/simple-devops-cicd-project/blob/main/_readme_images/docker-desktop1.png?raw=true)
+
+I recommend enabling below highlighted options inorder to run the project successfully-
+
+<p align="center">
+  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/main/_readme_images/docker-desktop1.png?raw=true" alt="Sublime's custom image"/>
+</p>
+
+- Daemon expose option is available in windows docker-desktop. Mac/Linux users can ignore
+
+<p align="center">
+  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/main/_readme_images/docker-desktop2.png?raw=true" alt="Sublime's custom image"/>
+</p>
+
+- Click on Apply & restart
+
+## Kubernetes configuration
+In above step, if you enable Kubernetes, a single node cluster will automatically get created.
+
+Please check if config file is created in below path-
+```bat
+Windows-
+C:\Users\give_your_user_account\.kube
+```
+```sh
+Mac or Linux-
+~./kube/
+```
+
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -144,7 +171,7 @@ gulp watch
 (optional) Third:
 
 ```sh
-karma test
+karma test 
 ```
 
 #### Building for source
