@@ -1,4 +1,7 @@
 ﻿# Simple DevOps Project
+<p align="center">
+  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/image/_readme_images/project-architecture.png?raw=true" alt="Sublime's custom image"/>
+</p>
 ## This DevOps project can be implemented on laptop ***(no cloud account required)*** consist of following technologies-
 - IDE - **VScode, Pycharm**, etc (Recommended but not mandatory)
 - Source Code Management as **GitHub**
