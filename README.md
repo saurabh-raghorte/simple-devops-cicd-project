@@ -1,6 +1,8 @@
 ﻿# Simple DevOps Project
-## This DevOps project can be implemented on laptop **(no cloud account required)** consist of following technologies-
+## This DevOps project can be implemented on laptop ***(no cloud account required)*** consist of following technologies-
+- IDE - **VScode, Pycharm**, etc (Recommended but not mandatory)
 - Source Code Management as **GitHub**
+- CICD tool - **Jenkins**
 - Containerization tool - **Docker** (Docker Desktop on Windows/ Mac / Linux)
 - **Kubernetes** using docker-dekstop
 - CICD tool - **Jenkins**
@@ -36,13 +38,13 @@ Windows users might face issue while starting docker-desktop, see below steps-
 I recommend enabling below highlighted options inorder to run the project successfully-
 
 <p align="center">
-  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/main/_readme_images/docker-desktop1.png?raw=true" alt="Sublime's custom image"/>
+  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/image/_readme_images/docker-desktop1.png?raw=true" alt="Sublime's custom image"/>
 </p>
 
 - Daemon expose option is available in windows docker-desktop. Mac/Linux users can ignore
 
 <p align="center">
-  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/main/_readme_images/docker-desktop2.png?raw=true" alt="Sublime's custom image"/>
+  <img src="https://github.com/devopswithprince/simple-devops-cicd-project/blob/image/_readme_images/docker-desktop2.png?raw=true" alt="Sublime's custom image"/>
 </p>
 
 - Click on Apply & restart
@@ -59,6 +61,55 @@ C:\Users\give_your_user_account\.kube
 Mac or Linux-
 ~./kube/
 ```
+## Jenkins setup
+Jenkins can be installed locally on your base machine like any other software or can be used as a container.
+
+In my setup, I have installed on base machine for more feasibility.
+
+Jenkins can be downloaded and installed as shown in below links-
+
+- Windows - https://www.jenkins.io/doc/book/installing/windows/
+- Mac - https://www.jenkins.io/doc/book/installing/macos/
+- Linux - https://www.jenkins.io/doc/book/installing/linux/
+- Through Docker as container - https://www.jenkins.io/doc/book/installing/docker/
+
+After Installation, get Administrator password from below-
+
+```powershell
+Windows
+Get-Content 'C:\Program Files\Jenkins\secrets\initialAdminPassword'
+```
+
+```sh
+Mac/Linux
+cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+```sh
+Docker
+docker ps
+
+CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                              NAMES
+12027cbeebc7   jenkins/jenkins:2.375.1   "/usr/bin/tini -- /u…"   7 seconds ago    Up 6 seconds    0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   myjenkins
+
+#Take your container id, as shown above and replace with your container id in below command-
+
+docker exec -it 12027cbeebc7 sh -c "cat /var/jenkins_home/secrets/initialAdminPassword"
+```
+## Application Deployment-
+[1. Docker-Compose](#docker-compose)
+
+### Docker-Compose
+
+
+
+
+
+
+
+
+
+
 
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
@@ -251,3 +302,4 @@ MIT
    [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+[def]: #section-3
