@@ -3,3 +3,4 @@ FROM nginx:1.21.6
 COPY docker-compose/nginx-nodejs-redis/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 # ENTRYPOINT [ "nginx","-g","daemon off" ]
 hello Prince
+ghfskgbksl
